@@ -1,0 +1,36 @@
+labels: ["discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Welcome to Elevate discussions! This is a place to connect with the community, ask questions, and share ideas.
+
+  - type: dropdown
+    id: discussion-type
+    attributes:
+      label: Discussion Type
+      description: What type of discussion is this?
+      options:
+        - General question
+        - Sharing experience
+        - Seeking advice
+        - Community feedback
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: discussion-content
+    attributes:
+      label: Discussion Content
+      description: What would you like to discuss?
+      placeholder: Share your thoughts, questions, or experiences with the community
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any additional context that would be helpful for the discussion
+      placeholder: Background information, specific use cases, or related experiences

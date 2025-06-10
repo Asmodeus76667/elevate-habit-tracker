@@ -1,0 +1,138 @@
+name: ✨ Feature Request
+description: Suggest a new feature or enhancement for Elevate
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new feature! Your ideas help make Elevate better for everyone.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Pre-submission Checklist
+      description: Please confirm the following before submitting
+      options:
+        - label: I have searched existing issues and discussions to ensure this hasn't been suggested
+          required: true
+        - label: This feature aligns with Elevate's core purpose of habit tracking
+          required: true
+
+  - type: textarea
+    id: problem-statement
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve? What pain point are you experiencing?
+      placeholder: Describe the problem or limitation you're facing
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: Describe your ideal solution to this problem
+      placeholder: A clear and detailed description of what you want to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-story
+    attributes:
+      label: User Story
+      description: Describe this feature from a user's perspective
+      placeholder: "As a [type of user], I want [goal] so that [benefit]"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: feature-category
+    attributes:
+      label: Feature Category
+      description: Which area of the app does this feature relate to?
+      options:
+        - Dashboard & Overview
+        - Habit Creation & Management
+        - Progress Tracking & Analytics
+        - User Interface & Experience
+        - Data Management & Export
+        - Notifications & Reminders
+        - Customization & Settings
+        - Mobile Experience
+        - Accessibility
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: user-type
+    attributes:
+      label: Target User Type
+      description: Who would benefit most from this feature?
+      multiple: true
+      options:
+        - New users just starting with habit tracking
+        - Experienced users with many habits
+        - Users who track daily habits
+        - Users who track weekly/custom habits
+        - Users focused on streaks and motivation
+        - Users who want detailed analytics
+        - All users
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Have you considered any alternative solutions or workarounds?
+      placeholder: Describe any alternative solutions or features you've considered
+
+  - type: textarea
+    id: mockups
+    attributes:
+      label: Mockups or Examples
+      description: If you have mockups, wireframes, or examples from other apps, please share them
+      placeholder: Drag and drop images here or paste URLs to examples
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this feature to you?
+      options:
+        - Low - Nice to have, but not essential
+        - Medium - Would improve my experience significantly
+        - High - Essential for my workflow, currently limiting my usage
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Estimated Complexity
+      description: How complex do you think this feature would be to implement?
+      options:
+        - Simple - Small UI change or minor functionality
+        - Medium - New component or moderate functionality
+        - Complex - Major feature requiring significant development
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context, screenshots, or examples about the feature request
+      placeholder: Any additional information that would be helpful
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution Interest
+      description: Would you be interested in contributing to this feature?
+      options:
+        - label: I would be interested in helping design this feature
+        - label: I would be interested in testing this feature
+        - label: I would be interested in providing feedback during development

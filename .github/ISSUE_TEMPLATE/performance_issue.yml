@@ -1,0 +1,160 @@
+name: ⚡ Performance Issue
+description: Report performance problems or slow behavior
+title: "[Performance]: "
+labels: ["performance", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a performance issue! This helps us keep Elevate fast and responsive.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Pre-submission Checklist
+      description: Please confirm the following before submitting
+      options:
+        - label: I have searched existing issues to ensure this hasn't been reported
+          required: true
+        - label: I have tested this on the latest version of Elevate
+          required: true
+        - label: I have tried refreshing the page and clearing browser cache
+          required: true
+
+  - type: textarea
+    id: performance-issue
+    attributes:
+      label: Performance Issue Description
+      description: Describe the performance problem you're experiencing
+      placeholder: What is slow or unresponsive? When does this happen?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Type of Performance Issue
+      description: What kind of performance problem is this?
+      options:
+        - Slow page loading
+        - Slow navigation between pages
+        - Slow habit completion/updates
+        - Slow progress chart rendering
+        - Unresponsive UI interactions
+        - High memory usage
+        - High CPU usage
+        - Other (please specify)
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this performance issue?
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Notice slow performance when '...'
+    validations:
+      required: true
+
+  - type: input
+    id: data-size
+    attributes:
+      label: Data Size
+      description: Approximately how many habits do you have? How long have you been using the app?
+      placeholder: e.g., "50 habits, using for 6 months"
+
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Browser
+      description: Which browser(s) are you experiencing this issue on?
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Opera
+        - Other (please specify in additional context)
+    validations:
+      required: true
+
+  - type: input
+    id: device-specs
+    attributes:
+      label: Device Specifications
+      description: What are your device specifications?
+      placeholder: e.g., "MacBook Pro M1, 16GB RAM" or "iPhone 12, iOS 17"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: connection-speed
+    attributes:
+      label: Internet Connection
+      description: What type of internet connection are you using?
+      options:
+        - Fast broadband (100+ Mbps)
+        - Regular broadband (10-100 Mbps)
+        - Slow broadband (<10 Mbps)
+        - Mobile data (4G/5G)
+        - Mobile data (3G or slower)
+        - Not sure
+
+  - type: textarea
+    id: timing-details
+    attributes:
+      label: Timing Details
+      description: Can you provide specific timing information?
+      placeholder: |
+        e.g., "Takes 5+ seconds to load dashboard"
+        "Habit completion button takes 2-3 seconds to respond"
+        "Progress page takes 10+ seconds to render charts"
+
+  - type: textarea
+    id: browser-performance
+    attributes:
+      label: Browser Performance Tools
+      description: If you've used browser dev tools, please share performance insights
+      placeholder: |
+        Open browser dev tools (F12) > Performance tab > Record while reproducing the issue
+        Share any notable findings about slow scripts, large DOM, memory usage, etc.
+
+  - type: textarea
+    id: console-errors
+    attributes:
+      label: Console Errors or Warnings
+      description: Any errors or warnings in the browser console during the performance issue?
+      render: shell
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How Often Does This Occur?
+      description: How frequently do you experience this performance issue?
+      options:
+        - Always - Every time I use this feature
+        - Often - Most of the time (>75%)
+        - Sometimes - Occasionally (25-75%)
+        - Rarely - Infrequently (<25%)
+        - Only once - Haven't been able to reproduce
+    validations:
+      required: true
+
+  - type: textarea
+    id: workarounds
+    attributes:
+      label: Workarounds
+      description: Have you found any workarounds for this performance issue?
+      placeholder: Any temporary solutions or ways to avoid the problem
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other context about the performance issue
+      placeholder: Screenshots, recordings, or additional details that might help

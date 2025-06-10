@@ -1,0 +1,76 @@
+labels: ["show-and-tell", "community"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share your habit tracking journey, success stories, or interesting ways you're using Elevate!
+
+  - type: dropdown
+    id: share-type
+    attributes:
+      label: What Are You Sharing?
+      description: What type of story or experience are you sharing?
+      options:
+        - Success story or milestone
+        - Interesting habit tracking approach
+        - Creative use of Elevate
+        - Long-term progress update
+        - Habit tracking tips
+        - Personal transformation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: story
+    attributes:
+      label: Your Story
+      description: Tell us about your experience!
+      placeholder: Share your story, achievements, or interesting approach to habit tracking
+    validations:
+      required: true
+
+  - type: textarea
+    id: habits-tracked
+    attributes:
+      label: Habits You Track
+      description: What kinds of habits do you track with Elevate?
+      placeholder: List some of the habits you track and how they've impacted your life
+
+  - type: input
+    id: time-using
+    attributes:
+      label: Time Using Elevate
+      description: How long have you been using Elevate?
+      placeholder: e.g., "3 months", "1 year", "since the beginning"
+
+  - type: textarea
+    id: key-insights
+    attributes:
+      label: Key Insights or Tips
+      description: What insights or tips would you share with other users?
+      placeholder: Any lessons learned or advice for others starting their habit tracking journey
+
+  - type: textarea
+    id: favorite-features
+    attributes:
+      label: Favorite Features
+      description: What are your favorite features of Elevate and why?
+      placeholder: Which features do you find most helpful or motivating?
+
+  - type: textarea
+    id: results-achieved
+    attributes:
+      label: Results Achieved
+      description: What positive changes or results have you seen?
+      placeholder: How has consistent habit tracking impacted your life?
+
+  - type: checkboxes
+    id: sharing-permissions
+    attributes:
+      label: Sharing Permissions
+      description: How can we use your story?
+      options:
+        - label: You can feature this story in Elevate's documentation or website
+        - label: You can share this story on social media (with attribution)
+        - label: You can use this as a testimonial for Elevate
