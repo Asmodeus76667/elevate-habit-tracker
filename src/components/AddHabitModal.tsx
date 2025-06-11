@@ -38,6 +38,8 @@ export const AddHabitModal: React.FC<AddHabitModalProps> = ({
     customDays: [] as number[],
     category: 'Health & Fitness',
     startDate: new Date().toISOString().split('T')[0],
+    reminderEnabled: false,
+    reminderTime: '09:00',
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -51,6 +53,8 @@ export const AddHabitModal: React.FC<AddHabitModalProps> = ({
       customDays: formData.frequency === 'custom' ? formData.customDays : undefined,
       category: formData.category,
       startDate: formData.startDate,
+      reminderEnabled: formData.reminderEnabled,
+      reminderTime: formData.reminderEnabled ? formData.reminderTime : undefined,
     });
 
     // Reset form
@@ -61,6 +65,8 @@ export const AddHabitModal: React.FC<AddHabitModalProps> = ({
       customDays: [],
       category: 'Health & Fitness',
       startDate: new Date().toISOString().split('T')[0],
+      reminderEnabled: false,
+      reminderTime: '09:00',
     });
     
     onClose();
@@ -191,6 +197,30 @@ export const AddHabitModal: React.FC<AddHabitModalProps> = ({
           value={formData.startDate}
           onChange={(e) => setFormData(prev => ({ ...prev, startDate: e.target.value }))}
         />
+
+        <div className="space-y-3 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+          <div className="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              id="reminderEnabled"
+              checked={formData.reminderEnabled}
+              onChange={(e) => setFormData(prev => ({ ...prev, reminderEnabled: e.target.checked }))}
+              className="rounded text-indigo-600 focus:ring-indigo-500"
+            />
+            <label htmlFor="reminderEnabled" className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              Enable daily reminders
+            </label>
+          </div>
+          
+          {formData.reminderEnabled && (
+            <Input
+              label="Reminder Time"
+              type="time"
+              value={formData.reminderTime}
+              onChange={(e) => setFormData(prev => ({ ...prev, reminderTime: e.target.value }))}
+            />
+          )}
+        </div>
 
         <div className="flex space-x-3 pt-4">
           <Button type="submit" className="flex-1">

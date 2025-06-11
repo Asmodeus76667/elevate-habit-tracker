@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Calendar, BarChart3, TrendingUp } from 'lucide-react';
+import { Calendar, BarChart3, TrendingUp, Trophy, Award } from 'lucide-react';
 import { useHabits } from '../hooks/useHabits';
+import { useAchievements } from '../hooks/useAchievements';
 
 export const Progress: React.FC = () => {
   const { habits } = useHabits();
   const [selectedHabit, setSelectedHabit] = useState<string>('all');
+  const { achievements, unlockedAchievements, getProgress } = useAchievements(habits);
 
   // Generate calendar heatmap data
   const generateHeatmapData = () => {
@@ -94,6 +96,7 @@ export const Progress: React.FC = () => {
   };
 
   const weeklyStats = getWeeklyStats();
+  const achievementProgress = getProgress();
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -137,6 +140,59 @@ export const Progress: React.FC = () => {
         </div>
       ) : (
         <div className="space-y-8">
+          {/* Achievements Section */}
+          <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center space-x-2">
+                <Trophy className="w-5 h-5 text-yellow-600" />
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  Achievements
+                </h2>
+              </div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">
+                {achievementProgress.unlocked}/{achievementProgress.total} unlocked ({achievementProgress.percentage}%)
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {achievements.map((achievement) => {
+                const isUnlocked = unlockedAchievements.some(unlocked => unlocked.id === achievement.id);
+                return (
+                  <div
+                    key={achievement.id}
+                    className={`
+                      p-4 rounded-lg border transition-all duration-200
+                      ${isUnlocked
+                        ? 'bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 border-yellow-200 dark:border-yellow-800'
+                        : 'bg-gray-50 dark:bg-gray-700/50 border-gray-200 dark:border-gray-600 opacity-60'
+                      }
+                    `}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className="text-2xl">{achievement.emoji}</div>
+                      <div className="flex-1">
+                        <h3 className="font-medium text-gray-900 dark:text-gray-100">
+                          {achievement.title}
+                        </h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                          {achievement.description}
+                        </p>
+                        {isUnlocked && (
+                          <div className="flex items-center space-x-1 mt-1">
+                            <Award className="w-3 h-3 text-yellow-600" />
+                            <span className="text-xs text-yellow-600 dark:text-yellow-400">
+                              Unlocked
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
           {/* Heatmap Calendar */}
           <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
             <div className="flex items-center space-x-2 mb-6">

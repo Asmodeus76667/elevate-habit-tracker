@@ -9,8 +9,7 @@ export const Navigation: React.FC = () => {
   const navItems = [
     { to: '/dashboard', icon: Home, label: 'Dashboard' },
     { to: '/habits', icon: CheckSquare, label: 'Habits' },
-    { to: '/progress', icon: BarChart3, label: 'Progress' },
-    { to: '/settings', icon: Settings, label: 'Settings' },
+    { to: '/progress', icon: BarChart3, label: 'Progress' }
   ];
 
   const toggleMobileMenu = () => {
