@@ -59,8 +59,8 @@ const ACHIEVEMENTS: Achievement[] = [
     emoji: '⭐',
     condition: (habits) => {
       const today = new Date().toISOString().split('T')[0];
+      const dayOfWeek = new Date().getDay();
       const todayHabits = habits.filter(habit => {
-        const dayOfWeek = new Date().getDay();
         return habit.frequency === 'daily' ||
                (habit.frequency === 'weekly' && dayOfWeek === 0) ||
                (habit.frequency === 'custom' && habit.customDays?.includes(dayOfWeek));
@@ -70,7 +70,7 @@ const ACHIEVEMENTS: Achievement[] = [
   },
   {
     id: 'consistency-king',
-    title: 'Consistency King',
+    title: 'Consistency Champion',
     description: 'Completed habits for 7 consecutive days',
     emoji: '👑',
     condition: (habits) => {
@@ -95,6 +95,40 @@ const ACHIEVEMENTS: Achievement[] = [
         }
       }
       return true;
+    },
+  },
+  {
+    id: 'early-bird',
+    title: 'Early Bird',
+    description: 'Set 3 habits with morning reminders',
+    emoji: '🌅',
+    condition: (habits) => {
+      const morningHabits = habits.filter(h => 
+        h.reminderEnabled && h.reminderTime && h.reminderTime < '12:00'
+      );
+      return morningHabits.length >= 3;
+    },
+  },
+  {
+    id: 'night-owl',
+    title: 'Night Owl',
+    description: 'Set 3 habits with evening reminders',
+    emoji: '🦉',
+    condition: (habits) => {
+      const eveningHabits = habits.filter(h => 
+        h.reminderEnabled && h.reminderTime && h.reminderTime >= '18:00'
+      );
+      return eveningHabits.length >= 3;
+    },
+  },
+  {
+    id: 'category-explorer',
+    title: 'Category Explorer',
+    description: 'Create habits in 4 different categories',
+    emoji: '🗺️',
+    condition: (habits) => {
+      const categories = new Set(habits.map(h => h.category));
+      return categories.size >= 4;
     },
   },
 ];

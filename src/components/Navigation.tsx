@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { BarChart3, CheckSquare, Home, Settings, TrendingUp, Menu, X } from 'lucide-react';
+import { BarChart3, CheckSquare, Home, TrendingUp, Menu, X, Trophy, Brain } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 
 export const Navigation: React.FC = () => {
@@ -9,7 +9,9 @@ export const Navigation: React.FC = () => {
   const navItems = [
     { to: '/dashboard', icon: Home, label: 'Dashboard' },
     { to: '/habits', icon: CheckSquare, label: 'Habits' },
-    { to: '/progress', icon: BarChart3, label: 'Progress' }
+    { to: '/progress', icon: BarChart3, label: 'Progress' },
+    { to: '/analytics', icon: Brain, label: 'Analytics' },
+    { to: '/achievements', icon: Trophy, label: 'Achievements' }
   ];
 
   const toggleMobileMenu = () => {

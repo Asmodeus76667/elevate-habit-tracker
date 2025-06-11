@@ -7,6 +7,8 @@ import { NotificationContainer } from './components/notifications/NotificationCo
 import { Dashboard } from './pages/Dashboard';
 import { Habits } from './pages/Habits';
 import { Progress } from './pages/Progress';
+import { Analytics } from './pages/Analytics';
+import { Achievements } from './pages/Achievements';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/habits" element={<Habits />} />
               <Route path="/progress" element={<Progress />} />
+              <Route path="/analytics" element={<Analytics />} />
+              <Route path="/achievements" element={<Achievements />} />
             </Routes>
             <NotificationContainer />
           </div>
