@@ -270,33 +270,6 @@ Elevate follows Apple-level design aesthetics with:
 - **Open Source**: Transparent codebase for security auditing
 - **Encryption**: Optional data encryption for sensitive information
 
-## 🚀 Roadmap
-
-### Phase 1: Core Enhancement (Current)
-- [x] Advanced achievement system
-- [x] Notification system with smart timing
-- [x] Enhanced analytics dashboard
-- [ ] AI-powered habit recommendations
-- [ ] Advanced data visualization
-
-### Phase 2: AI Integration (Q2 2025)
-- [ ] Machine learning habit success prediction
-- [ ] Personalized coaching recommendations
-- [ ] Optimal timing suggestions
-- [ ] Pattern recognition and insights
-
-### Phase 3: Social Features (Q3 2025)
-- [ ] Habit sharing and community
-- [ ] Team challenges and competitions
-- [ ] Social accountability features
-- [ ] Public achievement showcases
-
-### Phase 4: Advanced Features (Q4 2025)
-- [ ] Integration with health apps
-- [ ] Advanced goal setting and tracking
-- [ ] Habit marketplace and templates
-- [ ] Premium analytics and insights
-
 ## 🤝 Contributing
 
 This is a personal project and **contributions are not currently accepted**. However, you're welcome to:
